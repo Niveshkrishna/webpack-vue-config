@@ -112,5 +112,10 @@ module.exports = {
 	resolve: {
 		extensions: ['*', '.js', '.vue'],
 		symlinks: false,
+		// Ensure npm link works for vue 3 and does not duplicate vue dependency
+		// See https://github.com/vuejs/core/issues/1503
+		alias: {
+			'vue$': path.resolve('./node_modules/vue')
+		},
 	},
 }
